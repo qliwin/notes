@@ -51,3 +51,34 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # otherwise forward it to index.php
 RewriteRule . index.php
 ```
+
+
+#### 后台用户添加和登录
+1. 后台模板AdminLTE的整合
+AdminLTE是一个基于bootstrap开发的后台模板，具有很多炫酷吊炸天的控件和效果，非常适合作为网站后台管理的模板。
+- 使用composer安装
+```
+composer require dmstr/yii2-adminlte-asset "2.*"
+```
+安装完成之后，我们就可以使用了。由于菜单配置项在vendor目录下，我们不能随便修改，所以我吗可以直接copy示例的代码使用。copy整个vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app下的layouts和site到backend/views，覆盖原始文件。
+
+2. 创建后台管理员Admin数据表
+```Sql
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `password_reset_token` (`password_reset_token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+```
