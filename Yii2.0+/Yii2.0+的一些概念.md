@@ -30,6 +30,14 @@ Component派生自Object，并支持事件（event）和行为（behavior）
     - 继承yii\base\Object
     - 声明一个用于保存该属性的私有成员变量
     - 提供getter或setter函数，或两者都提供，用于访问和修改上面提到的私有成员变量，如果只提供getter，那么该属性为只读属性，只提供setter，则为只写属性。
+3. Object的其他与属性相关的方法
+除了__get()和__set之外，yii\base\Object还提供了很多方法便于使用属性
+    - __isset()：用于测试属性值是否为null，会在isset($object->property)时被自动调用，该属性需要相应的getter
+    - __unset()：用于将属性值设置为null，在unset($object->property)时被自动调用，该属性需要相应的setter
+    - hasProperty()：用于测试是否有某个属性。如果hasProperty()的参数默认为true，那么只要具有同名的成员变量也认为具有该属性
+    - canGetProperty：测试一个属性是否可读
+    - canSetProperty：测试一个属性是否可写
+
 #### 事件（Event）
 
 
