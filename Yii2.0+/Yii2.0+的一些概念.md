@@ -38,6 +38,8 @@ Component派生自Object，并支持事件（event）和行为（behavior）
     - canGetProperty：测试一个属性是否可读
     - canSetProperty：测试一个属性是否可写
 
+
+
 #### 事件（Event）
 
 
