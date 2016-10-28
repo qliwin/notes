@@ -43,4 +43,6 @@ Component派生自Object，并支持事件（event）和行为（behavior）
 #### 事件（Event）
 
 
+
+
 #### 行为(Behavior)
