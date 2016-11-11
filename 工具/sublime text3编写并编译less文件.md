@@ -6,7 +6,7 @@
 
 - Ctrl+Shift+p打开命令面板，输入install并在下拉选项中选中install package（前提是事先安装好sublime的插件管理插件package control），弹出新搜索框之后再输入要安装的插件，然后下拉出现对应插件，点击安装。
 
-> 安装好插件后还不能编译，必须安装nodeJs，并将nodejs配置为系统全局变量
+> 安装好插件后还不能编译，必须安装[NodeJs](https://nodejs.org/en/)，并将nodejs配置为系统全局变量
 
 - 使用nodejs的包管理工具npm安装nodejs扩展插件less和扩展插件less-plugin-clean-css，具体安装命令如下：（我使用的而是全局安装，另外nodejs插件less和less-plugin-clean-css必须安装在同一个目录下，即都是全局安装或都是局部安装）
 ```
