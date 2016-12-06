@@ -52,7 +52,10 @@ $res = DB::table('users')
 5. sum() : 获取指定字段的所有数据的和
 
 
+
 ### 查询（Select）
+
+#### 
 
 
 ### Where子句
