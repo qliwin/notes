@@ -10,7 +10,7 @@ git add readme.md # 添加新文件
 
 git commit -m "some description" 
 
-git remote add origin `git@github.com:linganmin/learn-laravel5.3-wanli.git` # 添加远端仓库地址
+git remote add origin  git@github.com:linganmin/learn-laravel5.3-wanli.git  # 添加远端仓库地址
 
 git push -u origin master # 提交到远端
 ```
