@@ -31,6 +31,7 @@
 
 ```html
 <audio id="Jaudio" class="media-audio" src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload loop="loop"></audio >
+<script>
 function audioAutoPlay(id){
     var audio = document.getElementById(id);
     audio.play();
@@ -39,12 +40,15 @@ function audioAutoPlay(id){
     }, false);
 }
 audioAutoPlay('Jaudio');
+</script>
 ```
 
 ### 综合解决音乐自动播放方法
 
 ```html
 <audio id="Jaudio" class="media-audio" src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload loop="loop"></audio >
+
+<script>
 function audioAutoPlay(id){
     var audio = document.getElementById(id),
         play = function(){
@@ -52,13 +56,16 @@ function audioAutoPlay(id){
         document.removeEventListener("touchstart",play, false);
     };
     audio.play();
-    document.addEventListener("WeixinJSBridgeReady", function () {//微信
-       play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        //微信
+        play();
     }, false);
-    document.addEventListener('YixinJSBridgeReady', function() {//易信
-              play();
+    document.addEventListener('YixinJSBridgeReady', function() {
+        //易信
+        play();
         }, false);
     document.addEventListener("touchstart",play, false);
 }
 audioAutoPlay('Jaudio');
+</script>
 ```
