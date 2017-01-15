@@ -86,11 +86,11 @@ CREATE TABLE `admin` (
 3. 使用脚手架工具GII生成对应模型和CRUD，附图供参考
 > 生成Model
 
-![alt](../images/gii-model.png)
+![](http://ww3.sinaimg.cn/large/6aedb651gw1fbejk5cpodj211g0qin1d.jpg)
 
 > 生成CRUD
 
-![alt](../images/gii-crud.png)
+![](http://ww2.sinaimg.cn/large/6aedb651gw1fbejkh14dvj211g0nzwiz.jpg)
 
 4. 修改生成的Admin的Model模型
 - 继承IdentityInterface接口，并实现其所有方法,重写默认模型的行为增加自动添加特定字段，重写beforeSave()方法，在保存到数据库之前，即save()方法执行之前执行密码加密等操作，代码如下
@@ -373,7 +373,7 @@ use yii\widgets\ActiveForm;
 
 ```
 > 表单
-![alt](../images/add-form.png)
+![](http://ww3.sinaimg.cn/large/6aedb651gw1fbejkwy8tnj20v10armxy.jpg)
 
 
 #### 登录
@@ -544,4 +544,4 @@ class LoginForm extends Model
     }
 }
 ```
-![alt](../images/login.png)
+![](http://ww1.sinaimg.cn/large/6aedb651gw1fbejl8n0o8j20ff0bs0t8.jpg)
