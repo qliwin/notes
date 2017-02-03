@@ -24,4 +24,4 @@ public function boot()
     Schema::defaultStringLength(191); 
 }
 ```
-另外，您也可以使innodb_large_prefix你的数据库选项。有关如何正确启用此选项的说明，请参阅数据库[文档](https://github.com/laravel/docs/blob/5.4/migrations.md)。
+另外，您也可以使innodb_large_prefix你的数据库选项。有关如何正确启用此选项的说明，请参阅数据库[文档](https://github.com/laravel/docs/blob/5.4/migrations.md#creating-indexes)。
