@@ -63,7 +63,8 @@
             + 简介：Laravel 让我们书写优雅的代码，为 Web 艺术家创造的 PHP 框架
             + 中文社区：https://laravel-china.org/
             + 中文文档：https://laravel-china.org/docs/5.3
-            + 好用的扩展包：后续整理
+            + 好用的扩展包：
+[点击进入](https://segmentfault.com/a/1190000008214876)
     - 工具
         - Composer
             + 简介：Composer是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。
