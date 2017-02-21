@@ -34,19 +34,14 @@
 ### 各司其职
 
 - Laravel：用于该项目后端开发，为app和日后的HTML5版提供api接口，目前已使用到的Laravel扩展如下，具体安装和配置详见第2集：
-	- "barryvdh/laravel-cors": "^0.8.6",
-	> 解决使用apicloud构建page时使用浏览器测试会出现的跨域文件
+```json
+"barryvdh/laravel-cors": "^0.8.6", // 解决使用apicloud构建page时使用浏览器测试会出现的跨域文件
+"barryvdh/laravel-ide-helper": "^2.3", // 代码编辑器助手，用于生成代码提示文件
+"tymon/jwt-auth": "0.5.*", // 实现前后端分离后的用户认证
+"yangyifan/upload": "v0.2" // 扩展Laravel的存储介质，扩展了阿里云的OSS和七牛云存储等
 
-	- "barryvdh/laravel-ide-helper": "^2.3",
-	> 代码编辑器助手，用于生成代码提示文件
-
-	- "tymon/jwt-auth": "0.5.*",
-	> 实现前后端分离后的用户认证
-
-	- "yangyifan/upload": "v0.2"
-	> 扩展Laravel的存储介质，扩展了阿里云的OSS和七牛云存储等
-
-	- 目前就是用到这些，后面用到在再添加，具体安装和配置请见第二集
+// 目前就是用到这些，后面用到在再添加，具体安装和配置请见第二集
+```
 
 - Vue：用于Apicloud使用HTML构建page时的数据渲染，可以减少jquery渲染数据过多的DOM操作。至于为何不用Vue的组件化开发，是因为Apicloud构建的app每个可视页面都是有且仅有一个完整的HTML文件，然后在这个页面内做相应请求和页面跳转数据渲等，所以并不适合使用Vue的组件化来做
 
