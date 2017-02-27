@@ -1,32 +1,38 @@
-## 这篇文章主要记录该项目所使用的后端PHP框架Laravel的安装和其周边扩展的使用，会随着后面扩展的增加而增加
+这篇文章主要记录该项目所使用的后端PHP框架Laravel的安装和其周边扩展的使用，会随着后面扩展的增加而增加
 
 ## 安装Laravel
 
 ### 要安装laravel首先要知道什么是``composer``
 
-1. 那什么是composer呢？
+- 那什么是composer呢？
 
 > Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。
 
 如果你是前端开发者你应该使用过``npm``或者``yarn``,如果你是Ruby开发者你肯定使用过``gem``,如果你是Python开发者你应该会用过``Pip``，那如果你是PHP开发者你就应该了解并去使用``composer``了，``composer``就是PHP这门编程语言的包管理器，我们可以使用它来安装框架或者你项目所需的优秀的资源包，详细的使用请移步 [composer中文文档](http://docs.phpcomposer.com/)
 
-2. 安装``composer``
+- 安装``composer``
 
 因为我们使用的Windows操作系统，所以这里只简单说一下Windows环境下的composer的安装。
 首先去 [composer官网下载地址](https://getcomposer.org/download/)下载最新版的安装文件，如下图
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jbvekmyj20z70apmy8)
+
 安装过程中composer会提示你选择电脑中已安装的``php.exe``的可执行文件路径，如下图
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jf1seaoj20ks0fot92)
+
 然后会提示你选择是否设置代理（因为众所周知的原因，国内访问国外的技术站比如``GitHub``等都会很慢，所以当我们使用包管理器的时候也经常遇到安装失败的问题，但是这里也可以不填，因为我们可以使用  [composer中国镜像站](https://pkg.phpcomposer.com/)来安装我们需要的扩展包），所以如下图的安装过程可以直接点下一步:
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jlpmcg3j20ks0fodga)
+
 然后直接安装即可，安装过程如下图，在这个过程中要访问国外的站点下载资源，所以可能会有点慢，如果电脑上有翻墙软件的话，尽量开一下，避免浪费过多时间
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jmflad7j20ks0fodg1)
+
 安装完成后会有下图的提示
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jpkm5x8j20ks0fo0us)
+
 现在打开命令行工具，输入``composer``后会输出以下图开始的一堆介绍和使用方法，至此我们安装``composer``完成
 ![](http://ww1.sinaimg.cn/large/6aedb651gy1fd2jsevv18j20g5071ab8)
 
-3. 将composer配置中国镜像
+
+- 将composer配置中国镜像
 
 上面也说到，因为一些众所周知的原因在国内访问国外站点会特别慢，更别说下载国外的资源了，当然如果你也可以24h翻墙，个人觉得太过奢侈，所以我们将安装好的composer配置上国内镜像站，具体的配置方式请移步 [composer中国镜像站](https://pkg.phpcomposer.com/),一般用户只需在终端执行如下命令即可
 ```bash
@@ -63,16 +69,16 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 - 安装和使用
 
-1. 使用composer安装
+- 使用composer安装
 > composer require barryvdh/laravel-ide-helper
-2. 修改Laravel配置文件``app.php``
+- 修改Laravel配置文件``app.php``
 在``config/app.php``的``providers``配置项中添加如下配置：
 > Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-3. 发布扩展的配置文件,
+- 发布扩展的配置文件,
 > php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider" --tag=config
-4. 生成代码提示辅助文件
+- 生成代码提示辅助文件
 > php artisan ide-helper:generate
-5. 为了方便后面每次安装新的扩展都需执行第4部的生成操作，我们可以在composer的配置文件``composer.json``中添加生成命令，添加的对应位置如下：
+- 为了方便后面每次安装新的扩展都需执行第4部的生成操作，我们可以在composer的配置文件``composer.json``中添加生成命令，添加的对应位置如下：
 ```json
 "scripts":{
     "post-update-cmd": [
@@ -84,7 +90,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 },
 ```
 
-6. 更详细使用方法请移步 [LaravelIdeHelper官方文档](https://github.com/barryvdh/laravel-ide-helper/blob/master/readme.md)
+- 更详细使用方法请移步 [LaravelIdeHelper官方文档](https://github.com/barryvdh/laravel-ide-helper/blob/master/readme.md)
 
 
 
@@ -101,7 +107,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 点击进入 [GitHub仓库地址](https://github.com/tymondesigns/jwt-auth/)
 
-1. 安装
+- 安装
 在``composer.json``添加依赖如下
 ```json
 "require": {
@@ -111,7 +117,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 执行命令：
 > composer update
 
-2. 修改Laravel配置文件``app.php``
+- 修改Laravel配置文件``app.php``
 在``config/app.php``的``providers``配置项中添加如下配置：
 > Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
@@ -119,15 +125,15 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 > 'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
 > 'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory'
 
-3. 发布配置文件
+- 发布配置文件
 执行如下命令
 > php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
 
-4. 生成token加密钥匙串
+- 生成token加密钥匙串
 执行如下命令
 > php artisan jwt:generate
 
-5. 使用
+- 使用
 
 具体使用方法请见 [jwt-auth官方文档](https://github.com/tymondesigns/jwt-auth/wiki)
 
