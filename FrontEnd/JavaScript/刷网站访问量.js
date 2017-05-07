@@ -15,3 +15,4 @@ function openPage(){
 window.setInterval(function(){
 	openPage();
 },6000);
+
