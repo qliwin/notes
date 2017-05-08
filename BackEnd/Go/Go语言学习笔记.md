@@ -1,8 +1,11 @@
 ### Go语言暴力入门1
 
-> 程序开发人员，不拘泥于语言与技术，合适和够用是最完美的追求，2017.05.04开始学习Go语言。
+### 关于作者
+> 程序开发人员，不拘泥于语言与技术，目前主要从事PHP和前端开发，使用Laravel和VueJs，App端使用Apicloud混合式开发。合适和够用是永不停息的追求。2017.05.04开始在空闲时间学习Go语言
 
 > 个人网站：http://www.linganmin.cn
+
+> 最近刚写了一个手机在线播放的H5电影站：http://www.ifilm.ltd
 
 
 #### Go语言简介
@@ -12,7 +15,7 @@ Go是从2007年末由Robert Griesemer, Rob Pike, Ken Thompson主持开发，后�
 
 #### 安装Go语言环境
 
-> 请自行Google/Baidu，或者参考官网：
+> 请自行Google/Baidu，或者参考官网：https://golang.org/
 
 
 #### 第一个Go程序
