@@ -87,12 +87,15 @@ export default {
 
 ```
 
-#### 父组件->子组件
+
+
+#### 父组件向子组件单向通信
 
 > 组件实例的作用域是孤立的。这意味着不能 (也不应该) 在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的 props 选项。详细文档请移步[使用prop传递数据](https://cn.vuejs.org/v2/guide/components.html#使用-Prop-传递数据)
 
 
 - 静态数据
+
 ```
 <!-- 父组件传递 -->
 <child my-message="hello!"></child>
@@ -102,14 +105,100 @@ props: ['myMessage'],
 ```
 
 - 动态数据
+
 ```
 <!-- 父组件传递 -->
 <child v-bind:my-message="parentMsg"></child>
 
 <!-- 子组件接收 -->
 ```
-#### 子组件->父组件
+
+#### Vue的单向数据流
+
+`prop` 是单向绑定的：当父组件的属性变化时，将传递给子组件，但是不会反过来。这是为了防止子组件无意或刻意修改了父组件的状态而导致应用的数据流难以理解。
+
+另外，每次父组件更新时，子组件的所有`prop`都会更新为最新值。这意味着你不应该在子组件内部改变`prop`。如果你这么做了，Vue 会在控制台给出警告。
+
+为什么我们会有修改 `prop` 中数据的冲动呢？通常是这两种原因：
+- `prop` 作为初始值传入后，子组件想把它当作局部数据来用；
+- `prop` 作为初始值传入，由子组件处理成其它数据输出。
 
 
+#### 子组件向父组件通信，通过`$emit`在子组件触发父组件方法
 
+##### 使用`v-on`绑定自定义事件
+
+> 每个 Vue 实例都实现了事件接口 [(Events interface)](https://cn.vuejs.org/v2/api/#实例方法-事件)，即：
+> 使用 $on(eventName) 监听事件
+> 使用 $emit(eventName) 触发事件
+
+父组件可以在使用子组件的地方直接用 `v-on` 来监听子组件触发的事件
+
+举例
+父组件代码
+```
+<template>
+  <div>
+    <p>他俩一共被点击了：{{total}}次</p>
+    <!-- 自定义事件监听子组件的increment事件，当子组件触发该事件时父组件执行对应回调函数incrementClickTotal -->
+    <click @increment="incrementClickTotal"></click>
+    <click @increment="incrementClickTotal"></click>
+  </div>
+</template>
+
+<script>
+import Click from './click'
+export default {
+  components: {
+    Click
+  },
+  data () {
+    return {
+      total:0
+    }
+  },
+  methods: {
+    incrementClickTotal(){
+      this.total++
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
+
+```
+子组件代码
+```
+<template>
+  <div>
+    <button @click="incrementCounter">我被点击了{{counter}}次</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      counter:0
+    }
+  },
+  methods: {
+    incrementCounter(){
+        this.counter++
+        // 使用$emit触发父组件的increment事件
+        this.$emit('increment')
+    }
+  }
+
+}
+</script>
+
+<style>
+
+</style>
+
+```
 #### 非父子组件
