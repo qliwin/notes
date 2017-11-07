@@ -195,11 +195,13 @@ git push -u origin master
 #### 测试使用自己开发的包扩展[2017.11.07更新]
 
 - 创建测试目录
+
 ```
 mkdir test-my-package
 cd test-my-package
 ```
 - 安装自己的扩展
+
 ```
  composer require lingan/try-make-package dev-master
 ./composer.json has been updated
@@ -214,6 +216,7 @@ Generating autoload files
 ![](https://ws1.sinaimg.cn/large/6aedb651gy1fl9c5bao71j20hs06waan.jpg)
 
 - 查看`autoload_psr4.php`
+
 ```
 <?php
 
@@ -230,6 +233,7 @@ return array(
 ```
 
 - 新建首页入口文件`index.php`，开始测试自己写的包
+
 ```
 <?php
 /**
@@ -252,6 +256,7 @@ echo $lily->desc();
 ```
 
 - 执行
+
 ```
 php index.php
 this is rose flower
